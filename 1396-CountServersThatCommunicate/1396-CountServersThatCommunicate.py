@@ -1,12 +1,18 @@
-# Last updated: 11/8/2026, 1:56:42 PM
+# Last updated: 11/8/2026, 1:58:13 PM
 class Solution:
     def countServers(self, grid: list[list[int]]) -> int:
-        rows = [sum(row) for row in grid] 
-        cols = [sum(col) for col in zip(*grid)]  
-
+        m = len(grid)
+        n = len(grid[0])
+        row = [0] * m
+        col = [0] * n
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    row[i] += 1
+                    col[j] += 1
         ans = 0
-        for i, row in enumerate(grid):
-            for j, server in enumerate(row):
-                if server and rows[i] + cols[j] > 2: 
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1 and (row[i] > 1 or col[j] > 1):
                     ans += 1
         return ans
