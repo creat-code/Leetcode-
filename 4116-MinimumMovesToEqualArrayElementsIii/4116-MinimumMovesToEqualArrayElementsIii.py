@@ -1,7 +1,7 @@
-# Last updated: 11/8/2026, 5:16:29 PM
+# Last updated: 11/8/2026, 5:18:08 PM
 class Solution:
     def minMoves(self, nums: List[int]) -> int:
-
-        return sum(max(nums) - num for num in nums)
+        big = max(nums)
+        return len(nums) * big - sum(nums)
 
         
