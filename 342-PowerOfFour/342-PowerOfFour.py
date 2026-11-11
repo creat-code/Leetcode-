@@ -1,4 +1,4 @@
-# Last updated: 11/12/2026, 12:48:13 AM
+# Last updated: 11/12/2026, 12:48:20 AM
 class Solution:
     def isPowerOfFour(self, n: int) -> bool:
         if n <= 0:
