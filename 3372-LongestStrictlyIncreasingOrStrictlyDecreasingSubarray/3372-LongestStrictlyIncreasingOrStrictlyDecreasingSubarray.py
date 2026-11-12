@@ -1,4 +1,4 @@
-# Last updated: 11/12/2026, 4:34:12 PM
+# Last updated: 11/12/2026, 4:35:33 PM
 class Solution:
     def longestMonotonicSubarray(self, nums: List[int]) -> int:
         res = 1
