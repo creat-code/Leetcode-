@@ -1,7 +1,7 @@
-# Last updated: 11/12/2026, 8:23:55 PM
+# Last updated: 11/12/2026, 8:24:50 PM
 class Solution:
     def lemonadeChange(self, bills: list[int]) -> bool:
-        collected = [0] * 3
+        collected = [0,0]
 
         for bill in bills:
             if bill == 5:
