@@ -1,25 +1,24 @@
-# Last updated: 11/12/2026, 8:24:50 PM
+# Last updated: 11/12/2026, 8:29:08 PM
 class Solution:
     def lemonadeChange(self, bills: list[int]) -> bool:
-        collected = [0,0]
-
+        five=ten=0
         for bill in bills:
             if bill == 5:
-                collected[0] += 1
+                five += 1
             elif bill == 10:
-                collected[1] += 1
-                if not collected[0]:
+                ten += 1
+                if not five:
                     return False
-                collected[0] -= 1
+                five -= 1
             else:
-                if collected[1]:
-                    collected[1] -= 1
-                    if collected[0]:
-                        collected[0] -= 1
+                if ten:
+                    ten -= 1
+                    if five:
+                        five -= 1
                     else:
                         return False
-                elif collected[0] > 2:
-                    collected[0] -= 3
+                elif five > 2:
+                    five -= 3
                 else:
                     return False
         return True
