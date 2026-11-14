@@ -1,16 +1,14 @@
-# Last updated: 11/14/2026, 4:04:09 PM
+# Last updated: 11/14/2026, 4:05:20 PM
 class Solution:
     def minimumSumSubarray(self, nums: List[int], l: int, r: int) -> int:
         n = len(nums)
+        prefix = [0] * (n + 1)
+        for i in range(n):
+            prefix[i + 1] = prefix[i] + nums[i]
         best = float('inf')
-
-        for length in range(l, r + 1):
-            s = 0
-            for i in range(n):
-                s += nums[i]
-                if i >= length:
-                    s -= nums[i - length]
-                if i >= length - 1 and 0 < s < best:
+        for j in range(l, n + 1):
+            for length in range(l, min(r, j) + 1):
+                s = prefix[j] - prefix[j - length]
+                if 0 < s < best:
                     best = s
-
         return -1 if best == float('inf') else best
